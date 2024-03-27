@@ -1,11 +1,19 @@
-#container {
+.md body{
+  background-color: #e71818;
+}
+.container {
   text-align: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 5%;
+  background: linear-gradient(to right, #fd8777, #e71818);
 
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  padding-top: 15px;
+  height: 200px;
+  width: 300px;
+  left: 50px;
+  top: 200px;
 }
 
 #container strong {

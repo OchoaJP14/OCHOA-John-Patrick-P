@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonButton } from '@ionic/angular';
+import { AlertController, IonButton, ToastController } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -11,7 +11,14 @@ import { AuthenticationService } from '../authentication.service';
 export class HomePage implements OnInit {
 
 
-  constructor(private AuthenticationService: AuthenticationService, private route : Router) {}
+  constructor(
+    private AuthenticationService: AuthenticationService,
+    private route : Router,
+    private toastController:ToastController,
+    private alertController: AlertController) {
+
+      
+    }
 
   goWithAuthentication(){
     this.AuthenticationService.authenticated = true;
@@ -19,45 +26,98 @@ export class HomePage implements OnInit {
   }
 
 
-  Authentication(buttonName: string){
+  // Authentication(buttonName: string){
 
-      if(buttonName === 'button1'){
-        this.route.navigate(['blank']);
-      }else if (buttonName === 'button2'){
+  //     if(buttonName === 'button1'){
+  //       this.route.navigate(['blank']);
+  //     }else if (buttonName === 'button2'){
         
-        if(this.AuthenticationService.authenticated == true){
-          this.route.navigate(['page2']);
-        }
-      }
-    this.AuthenticationService.authenticated = false;
-  }
+  //       if(this.AuthenticationService.authenticated == true){
+  //         this.route.navigate(['page2']);
+  //       }
+  //     }
+  //   this.AuthenticationService.authenticated = false;
+  // }
 
-  event(){
-      this.route.navigate(['blank']);
-  }
+  // event(){
+  //     this.route.navigate(['blank']);
+  // }
 
   ngOnInit(): void {
     
   }
 
-  ngOnDestroy(): void {
+  // ngOnDestroy(): void {
     
+  // }
+
+  // ionViewWillEnter(){
+  //   console.log('You Will Enter the Home Page');
+  // }
+
+  // ionViewDidEnter(){
+  //   console.log('You Did Enter the Home Page');
+  // }
+
+  // ionViewWillLeave(){
+  //   console.log('You Will Leave the Home Page');
+  // }
+
+  // ionViewDidLeave(){
+  //   console.log('You Did Leave the Home Page');
+  // }
+
+
+
+
+   username: string = ''
+   password: string = ''
+
+  async login(){
+    if(this.username == 'admin'){
+      if(this.password == 'admin'){
+        const alert = await this.alertController.create({
+          header: "Login",
+          subHeader: "Status",
+          message: "Login Successfully",
+          buttons: ['ok']
+        });
+        await alert.present();
+        this.AuthenticationService.authenticated = true;
+        this.route.navigate(['dashboard']);
+      } else{
+        const toast = await this.toastController.create({
+          message: "Login Failed",
+          duration:2000
+        });
+        toast.present();
+      }
+    } else if(this.username == 'user1'){
+      if(this.password == '12345'){
+        const alert = await this.alertController.create({
+          header: "Login",
+          subHeader: "Status",
+          message: "Login Successfully",
+          buttons: ['ok']
+        });
+        await alert.present();
+        this.AuthenticationService.authenticated = true;
+        this.route.navigate(['dashboard']);
+      } else{
+        const toast = await this.toastController.create({
+          message: "Login Failed",
+          duration:2000
+        });
+        toast.present();
+      }
+    } else {
+      const toast = await this.toastController.create({
+        message: "Login Failed",
+        duration:2000
+      });
+      toast.present();
+    }
   }
 
-  ionViewWillEnter(){
-    console.log('You Will Enter the Home Page');
-  }
-
-  ionViewDidEnter(){
-    console.log('You Did Enter the Home Page');
-  }
-
-  ionViewWillLeave(){
-    console.log('You Will Leave the Home Page');
-  }
-
-  ionViewDidLeave(){
-    console.log('You Did Leave the Home Page');
-  }
 }
   

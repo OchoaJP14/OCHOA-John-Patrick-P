@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home Page - Page 1
+      LOGIN
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,9 +13,14 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <div id="container">
-    <ion-button (click) = "Authentication('button1')">Go by Link</ion-button>
-    <ion-button (click) = "Authentication('button2')">Go by Event</ion-button><br>
-    <ion-button (click) = "goWithAuthentication()">Authorize</ion-button>
-  </div>
+  <pre class="container">
+    
+  <input type="text" placeholder="Username" [(ngModel)]="username"><br>
+  <input type="password" placeholder="Password" [(ngModel)]="password">
+
+  <ion-button (click)="login()">LOGIN</ion-button>
+  </pre>
+
+  {{username}}
+  {{password}}
 </ion-content>

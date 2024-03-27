@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 import { AnotherPage } from './another/another.page';
 import { customPage } from './shared/custom-component';
+import { DashboardPage } from './dashboard/dashboard.page';
 
 const routes: Routes = [
   {
@@ -27,6 +28,12 @@ const routes: Routes = [
     path: 'blank',
     component: customPage
   },
+  {
+    path: 'dashboard',
+    component: DashboardPage,
+    canActivate: [AuthenticationService]
+  },
+
 ];
 
 @NgModule({
