@@ -1,12 +1,12 @@
 .md body{
-  background-color: #e71818;
+  background-color: #1837e7;
 }
-.container {
+.space {
   text-align: center;
   align-items: center;
   border: 2px solid white;
   border-radius: 5%;
-  background: linear-gradient(to right, #fd8777, #e71818);
+  background: linear-gradient(to right, #778bfd, #1829e7);
 
   position: absolute;
   padding-top: 15px;
@@ -14,8 +14,15 @@
   width: 300px;
   left: 50px;
   top: 200px;
+  animation: changeColor 5s infinite alternate;
 }
-
+@keyframes changeColor {
+  0% {border-color:red}
+  25% { border-color: #00ff00}
+  50% {border-color: #0000ff}
+  75% {border-color:#ffff00}
+  100% {border-color:#ff00ff}
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;

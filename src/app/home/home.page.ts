@@ -26,56 +26,19 @@ export class HomePage implements OnInit {
   }
 
 
-  // Authentication(buttonName: string){
-
-  //     if(buttonName === 'button1'){
-  //       this.route.navigate(['blank']);
-  //     }else if (buttonName === 'button2'){
-        
-  //       if(this.AuthenticationService.authenticated == true){
-  //         this.route.navigate(['page2']);
-  //       }
-  //     }
-  //   this.AuthenticationService.authenticated = false;
-  // }
-
-  // event(){
-  //     this.route.navigate(['blank']);
-  // }
-
+  
   ngOnInit(): void {
     
   }
 
-  // ngOnDestroy(): void {
-    
-  // }
-
-  // ionViewWillEnter(){
-  //   console.log('You Will Enter the Home Page');
-  // }
-
-  // ionViewDidEnter(){
-  //   console.log('You Did Enter the Home Page');
-  // }
-
-  // ionViewWillLeave(){
-  //   console.log('You Will Leave the Home Page');
-  // }
-
-  // ionViewDidLeave(){
-  //   console.log('You Did Leave the Home Page');
-  // }
-
-
-
+  
 
    username: string = ''
    password: string = ''
 
   async login(){
-    if(this.username == 'admin'){
-      if(this.password == 'admin'){
+    if(this.username == 'user1'){
+      if(this.password == 'pass1'){
         const alert = await this.alertController.create({
           header: "Login",
           subHeader: "Status",
@@ -92,8 +55,8 @@ export class HomePage implements OnInit {
         });
         toast.present();
       }
-    } else if(this.username == 'user1'){
-      if(this.password == '12345'){
+    } else if(this.username == 'user2'){
+      if(this.password == 'pass2'){
         const alert = await this.alertController.create({
           header: "Login",
           subHeader: "Status",
