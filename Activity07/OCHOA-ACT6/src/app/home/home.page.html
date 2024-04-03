@@ -1,0 +1,28 @@
+<ion-app>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-animation" color="primary">
+  <div class="ion-text-center">
+    
+  </div>
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label position="floating" color="light">Username</ion-label>
+      <ion-input type="text" [(ngModel)]="username" clearInput color="light"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="light">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" clearInput color="light"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-text-center ion-padding-top">
+    <ion-button expand="block" color="light" (click)="login()">Login</ion-button>
+  </div>
+</ion-content>
+</ion-app>

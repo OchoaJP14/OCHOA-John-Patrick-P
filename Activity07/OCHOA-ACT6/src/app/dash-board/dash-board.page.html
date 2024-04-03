@@ -1,0 +1,100 @@
+<ion-app>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>DashBoard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of data">
+    <ion-card-header>
+      {{ item.name }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ item.description }}
+    </ion-card-content>
+    <ion-item>
+      <ion-icon slot="start" name="star"></ion-icon>
+      <ion-label>Rating: {{ item.rating }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="time"></ion-icon>
+      <ion-label>Duration: {{ item.duration }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="calendar"></ion-icon>
+      <ion-label>Date: {{ item.date }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="location"></ion-icon>
+      <ion-label>Location: {{ item.location }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="people"></ion-icon>
+      <ion-label>Participants: {{ item.participants }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="heart"></ion-icon>
+      <ion-label>Likes: {{ item.likes }}</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <div class="calculator">
+    <div class="result-space">{{ displayValue }}</div>
+    <ion-grid class="buttons">
+      <ion-row>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(1)">1</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(2)">2</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(3)">3</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(4)">4</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(5)">5</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(6)">6</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(7)">7</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(8)">6</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" color="light" (click)="appendNumber(9)">9</ion-button>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="3">
+          <ion-button expand="full" color="light" (click)="add()">+</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button expand="full" color="light" (click)="subtract()">-</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button expand="full" color="light" (click)="multiply()">*</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button expand="full" color="light" (click)="divide()">/</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" color="secondary" (click)="calculate()">=</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" (click)="clear()">C</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+</ion-app>
