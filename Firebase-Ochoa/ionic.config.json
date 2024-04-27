@@ -1,0 +1,7 @@
+{
+  "name": "Firebase-Ochoa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
