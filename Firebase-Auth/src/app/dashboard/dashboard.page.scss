@@ -1,0 +1,59 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+section {
+    padding: 20px;
+    background-color: rgba(0, 123, 255, 0.65); 
+    margin: 50px;
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+    overflow: hidden; 
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+
+section p {
+    transition: color 0.3s ease;
+    margin: 0; 
+}
+
+section p:hover {
+    color: #e3e8ed; 
+}
+
+section li:hover {
+    color: #e3e7eb; 
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url('../dashboard/images/Tech2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.Header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }

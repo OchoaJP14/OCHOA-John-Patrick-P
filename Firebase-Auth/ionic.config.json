@@ -1,0 +1,7 @@
+{
+  "name": "Firebase-Auth",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "act-9-ochoa"
+  },
+  "targets": {
+    "act-9-ochoa": {
+      "hosting": {
+        "app": [
+          "act-9-ochoa"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

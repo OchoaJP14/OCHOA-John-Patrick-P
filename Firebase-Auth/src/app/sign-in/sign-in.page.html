@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>SIGN IN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title" size="large">SIGN iN</ion-title>
+    <p class="subtitle">Sign In to access your account</p>
+  </div>
+
+  <form [formGroup]="loginform" novalidate>
+    <div class="ion-padding">
+      <div *ngIf="this.loginform.controls?.['email'].touched && this.loginform.controls?.['email'].invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required">
+          Email is required
+        </ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern">
+          Email should be valid
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-input formControlName="email" class="input" placeholder="email" [(ngModel)]="email"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="this.loginform.controls?.['password'].touched && this.loginform.controls?.['password'].invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required">
+          password is required
+        </ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.pattern">
+          password must have at least: One character, One Capital Letter, One Number, and must contain 8 characters
+        </ion-text>
+      </div>      
+      <ion-item>
+        <ion-input formControlName="password" class="input" placeholder="password" [(ngModel)]="password"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+
+      <ion-button expand="block" (click)="signIn()">Sign In</ion-button>
+      
+      <div class="forgotpass">
+        <a routerLink="/reset-password">Forgot password?</a>
+      </div>
+      
+      <div class="SignUp-Link">
+        <p>New Member? <a routerLink="/sign-up">Sign Up Now!</a></p>
+      </div>
+    </div>
+  </form>
+</ion-content>

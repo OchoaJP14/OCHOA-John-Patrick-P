@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>SIGN UP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title" size="large">signUp</ion-title>
+    <p class="subtitle">SIGN UP to create your account</p>
+  </div>
+
+  <form [formGroup]="regForm" novalidate>
+    <div class="ion-padding">
+      <div *ngIf="this.regForm.controls?.['fullname'].touched && this.regForm.controls?.['fullname'].invalid">
+        <ion-text *ngIf="errorControl.fullname.errors?.required">
+          name is required
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-input formControlName="fullname" class="input" placeholder="username" [(ngModel)]="name"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required">
+          Email is required
+        </ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern">
+          Email should be valid
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-input formControlName="email" class="input" placeholder="email" [(ngModel)]="email"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required">
+          password is required
+        </ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.pattern">
+          password must have at least: One character, One Capital Letter, One Number, and must contain 8 characters
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-input formControlName="password" class="input" placeholder="password" [(ngModel)]="password"> </ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="retypepassword" class="input" placeholder="re-enter password" [(ngModel)]="retypepassword"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <ion-button expand="block" (click)="signUp()">Sign Up</ion-button>
+      <div class="SignIn-Link">
+        <p> Already Have an Account? <a routerLink="/sign-in">sign-in </a></p>
+      </div>
+    </div>
+  </form>
+</ion-content>
