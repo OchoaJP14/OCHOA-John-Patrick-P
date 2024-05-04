@@ -1,0 +1,23 @@
+
+
+<ion-content class="ion-padding">
+  <div class="header">
+    <ion-title class="title" size="large">SIGN IN</ion-title>
+    <p class="subtitle">Sign In to access your account</p>
+  </div>
+ 
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input class="input" placeholder="email" [(ngModel)]="email"></ion-input>
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input class="input" placeholder="password" [(ngModel)]="password"> </ion-input>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </ion-item>
+  <ion-button expand="block" (click)="login()">Signup</ion-button>
+  <div class="SignIn-Link">
+    <p> You Dont have an Account? <a routerLink="/sign-up">sign-up </a></p>
+  </div>
+  </div>
+</ion-content>

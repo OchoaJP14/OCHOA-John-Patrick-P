@@ -1,0 +1,7 @@
+{
+  "name": "Digilib",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
