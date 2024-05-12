@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">CANCEL</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="updateLists()">
+        <ion-icon slot="icon-only" size="large" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+    <ion-buttons slot="end">  
+      <ion-button (click)="removeLists()">
+        <ion-icon slot="icon-only" size="large" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div *ngIf="list">
+    <ion-item> 
+      <ion-input labelPlacement="stacked" label="Name" [(ngModel)]="list.name"> </ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-input labelPlacement="stacked" label="Age" [(ngModel)]="list.age"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <p>Active:</p>
+      <ion-toggle [(ngModel)]="list.isActive">
+
+      </ion-toggle>
+    </ion-item> 
+    <ion-input 
+    class="input" 
+    type="date" 
+    [(ngModel)]="list.createdAt"></ion-input>
+    <ion-item>
+      <ion-textarea
+      class="text-content"
+      type="text"
+      [(ngModel)]="list.description"></ion-textarea>
+    </ion-item>
+  </div>
+</ion-content>

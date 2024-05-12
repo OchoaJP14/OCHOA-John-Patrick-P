@@ -20,4 +20,8 @@ export class DashboardPage implements OnInit {
       this.router.navigate(['/sign-in'])
     })
   }
+
+  goToList(){
+    this.router.navigate(['/list'])
+  }
 }

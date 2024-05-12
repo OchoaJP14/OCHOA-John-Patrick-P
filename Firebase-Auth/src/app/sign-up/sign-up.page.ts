@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class SignUpPage implements OnInit {
   regForm: FormGroup;
 
   constructor(public formBuilder:FormBuilder, public loadControl:LoadingController, public authService : AuthService, private alertController : AlertController,
-    public router : Router
+    public router : Router, private toastController : ToastController
   ) { }
 
   ngOnInit() {
@@ -62,7 +62,9 @@ export class SignUpPage implements OnInit {
     });
   
     if (user) {
+      this.presentToast('Signup successful!');
       this.router.navigate(['/sign-in']);
+
     } else {
       console.log('Provide Correct Values');
     }
@@ -74,5 +76,13 @@ export class SignUpPage implements OnInit {
       buttons: ['okay']
     });
     await alert.present();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 }

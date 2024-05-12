@@ -29,6 +29,16 @@ const routes: Routes = [
     path: 'reset-password',
     loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-list',
+    loadChildren: () => import('./change-list/change-list.module').then( m => m.ChangeListPageModule),
+    canActivate: [AuthGuard]
+  },
 
 ];
 

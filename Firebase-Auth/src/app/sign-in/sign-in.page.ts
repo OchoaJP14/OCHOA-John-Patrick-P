@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class SignInPage implements OnInit {
   
   loginform : FormGroup
   constructor(public formBuilder:FormBuilder, public loadControl:LoadingController, public authService : AuthService, public router : Router,
-    private alertController : AlertController
+    private alertController : AlertController, private toastController : ToastController
   ) { }
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class SignInPage implements OnInit {
         this.presentAlert('Failed', 'Invalid Input')
       })
       if(user){
-        
+        this.presentToast('Login successful!');
         this.router.navigate(['/dashboard'])
       } else {
         console.log('Provide Correct Values');
@@ -61,5 +61,13 @@ export class SignInPage implements OnInit {
       buttons: ['okay']
     });
     await alert.present();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 }
